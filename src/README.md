@@ -25,3 +25,7 @@ copy('Text', {
   message: 'Press #{key} to copy',
 });
 ```
+
+其它参考
+
+https://stackoverflow.com/questions/64848019/convert-template-literal-to-string
