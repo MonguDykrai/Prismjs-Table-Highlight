@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react';
-import { Table } from 'antd';
 import Prism from 'prismjs';
 import 'prismjs/themes/prism.css';
 
@@ -107,7 +106,7 @@ export default App;
 
 const jsx = Prism.highlight(code, Prism.languages.javascript, 'javascript');
 
-console.log(jsx);
+// console.log(jsx);
 
 const Core = forwardRef(({}, ref) => {
   return <pre dangerouslySetInnerHTML={{ __html: jsx }} ref={ref}></pre>;
