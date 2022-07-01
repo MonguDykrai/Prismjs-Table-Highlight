@@ -1,9 +1,3 @@
-import React, { forwardRef } from 'react';
-import { Table } from 'antd';
-import Prism from 'prismjs';
-import 'prismjs/themes/prism.css';
-
-const code = `
 import { Space, Table, Tag } from 'antd';
 import type { ColumnsType } from 'antd/lib/table';
 import React from 'react';
@@ -21,7 +15,7 @@ const columns: ColumnsType<DataType> = [
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    render: text => <a>{text}</a>,
+    render: (text) => <a>{text}</a>,
   },
   {
     title: 'Age',
@@ -39,7 +33,7 @@ const columns: ColumnsType<DataType> = [
     dataIndex: 'tags',
     render: (_, { tags }) => (
       <>
-        {tags.map(tag => {
+        {tags.map((tag) => {
           let color = tag.length > 5 ? 'geekblue' : 'green';
           if (tag === 'loser') {
             color = 'volcano';
@@ -92,27 +86,3 @@ const data: DataType[] = [
 const App: React.FC = () => <Table columns={columns} dataSource={data} />;
 
 export default App;
-`;
-
-// const code = `
-//   <>
-//     <div><button onClick={() => { message.info("提交了") }}>提交</button></div>
-//     <Table columns={[]} data={[{ name: 'jack' }]} />
-//   </>
-// `;
-
-// const code = `
-//   console.log()
-// `;
-
-const jsx = Prism.highlight(code, Prism.languages.javascript, 'javascript');
-
-console.log(jsx);
-
-const Core = forwardRef(({}, ref) => {
-  return <pre dangerouslySetInnerHTML={{ __html: jsx }} ref={ref}></pre>;
-  // return <code dangerouslySetInnerHTML={{ __html: jsx }}></code>;
-  // return <span>Core</span>;
-});
-
-export default Core;
