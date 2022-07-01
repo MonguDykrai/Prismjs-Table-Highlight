@@ -26,6 +26,22 @@ copy('Text', {
 });
 ```
 
+https://reactjs.org/docs/react-dom-server.html
+
+解析 jsx 为 html
+
+```js
+export default function App() {
+  let content = ReactDOMServer.renderToString(
+    <Example text="but I need some styling" />
+  );
+
+  content += " This is extra string";
+
+  return <Info content={JSON.stringify(content)} />;
+}
+```
+
 其它参考
 
 [Convert template literal to string](https://stackoverflow.com/questions/64848019/convert-template-literal-to-string)
